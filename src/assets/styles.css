@@ -1,0 +1,35 @@
+/* Navbar Styles */
+.navbar {
+    padding: 15px;
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #222;
+  }
+  .footer-link {
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  .footer-link:hover {
+    color: #fff;
+  }
+  
+  /* Main Content */
+  .header-photo {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-photo {
+      width: 150px;
+    }
+  }
+  

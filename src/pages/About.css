@@ -1,0 +1,280 @@
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.about-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.poet-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.poet-image-container {
+  flex: 0 0 200px;
+  margin-right: 2rem;
+}
+
+.poet-image-container {
+  position: relative;
+  display: inline-block;
+  padding: 5px;
+}
+
+.poet-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  border: 1px solid transparent;
+}
+
+/* Animated Border */
+.poet-image-container::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #ffd700,
+    #fff8dc,
+    #ffcc00,
+    #fff8dc,
+    #ffd700
+  );
+  z-index: 1;
+  animation: rotateBorder 4s linear infinite;
+}
+
+/* Animation Keyframes */
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.poet-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.poet-name {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #222;
+  font-weight: 700;
+}
+
+.poet-title {
+  font-size: 1.25rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.poet-bio {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.poet-bio p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.poet-quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #d9a566;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+}
+
+.achievements {
+  background-color: #f8f5f1;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.achievements h2 {
+  font-size: 1.4rem;
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #d9a566;
+  padding-bottom: 0.5rem;
+}
+
+.achievements ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.achievements li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.achievements li::before {
+  content: "•";
+  color: #d9a566;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .poet-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .poet-image-container {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    max-width: 180px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .about-content {
+    padding: 1.5rem;
+  }
+  
+  .poet-quote {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 1rem;
+  }
+  
+  .poet-name {
+    font-size: 2rem;
+  }
+}
+/* Awards section styles */
+.achievements {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+
+.achievements h2 {
+  color: #8B4513;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.award-item {
+  background: #f8f5f2;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.award-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.award-image-container {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.award-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.award-details h3 {
+  color: #8B4513;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 600;
+}
+
+.award-details p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .award-item {
+    padding: 1rem;
+  }
+  
+  .award-image-container {
+    height: 150px;
+  }
+  
+  .achievements h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}

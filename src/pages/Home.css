@@ -1,0 +1,454 @@
+/* Poetry Home Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #ff6600;
+  --primary-hover: #cc5500;
+  --text-color: #333;
+  --light-text: #555;
+  --accent-color: #ffcc00;
+  --light-accent: rgba(255, 204, 0, 0.15);
+  --background: #fff;
+  --card-bg: #fdfdfd;
+  --header-height: 70px; /* Adjust to match your header height */
+}
+
+/* Ensure content starts below fixed header */
+.home-page {
+  padding-top: calc(var(--header-height) + 40px);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f7f5f2, #fffaf3);
+}
+
+/* Decorative elements */
+.decorative-element {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ff6600' d='M25.4,19.4c3.7-2.9,8.8-1.6,11.9,1.3c3,2.9,4.2,7.7,2.6,11.6c-1.6,3.8-5.4,5.4-9.4,4.9c-5.6-0.7-9.5-5.3-8.4-10.9 C22.9,23.1,23,21.3,25.4,19.4z M44.6,44.7c-4.2-0.4-5.5-4.4-3.6-8c2-3.8,7.1-2.7,9,1.1c1.3,2.5,2.3,5.1,3.3,7.7 c1.3,3.3-0.5,6.3-3.6,6.9C45.6,53.3,46.5,44.9,44.6,44.7z M58.9,66.1c-3.4,3.9-7.8,2.8-10.1-1.5c-2.1-3.9,1.7-9.8,6.3-10 c3.4-0.1,6.1,2.5,6.8,5.8C62.5,63.8,61,63.7,58.9,66.1z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.decorative-element.left {
+  top: 10%;
+  left: -100px;
+  transform: rotate(-45deg);
+}
+
+.decorative-element.right {
+  bottom: 10%;
+  right: -100px;
+  transform: rotate(45deg);
+}
+
+/* Main content container */
+.poetry-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero section styling */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+/* Image styling */
+.image-frame {
+  position: relative;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.image-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulse 3s infinite alternate;
+}
+
+.poet-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease-in-out;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,204,0,0) 0%, rgba(255,204,0,0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.image-container:hover .poet-image {
+  transform: scale(1.08);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Typography */
+.poet-title {
+  margin: 0 0 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  line-height: 1.3;
+}
+
+.welcome-text {
+  display: block;
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: var(--light-text);
+  margin-bottom: 0.5rem;
+}
+
+.poet-name {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.poet-name::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.poet-description {
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--light-text);
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Button styling */
+.action-container {
+  margin: 1rem 0 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.poetry-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 32px;
+  background-color: var(--primary-color);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.poetry-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s ease;
+}
+
+.button-decoration {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.poetry-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
+}
+
+.poetry-button:hover::before {
+  left: 100%;
+}
+
+.poetry-button:hover .button-decoration {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Featured poem section */
+.featured-poem {
+  margin: 3rem auto 5rem;
+  max-width: 800px;
+  opacity: 0;
+}
+
+.poem-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.poem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+}
+
+.featured-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.featured-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: var(--light-accent);
+  bottom: -8px;
+  left: 0;
+}
+
+.poem-content {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.poem-line {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 0.6rem;
+  color: var(--text-color);
+}
+
+.read-more {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.read-more::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary-color);
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.read-more:hover {
+  color: var(--primary-hover);
+}
+
+.read-more:hover::after {
+  width: 100%;
+}
+
+/* Animation classes */
+.fade-in-up {
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 991.98px) {
+  .home-page {
+    padding-top: calc(var(--header-height) + 30px);
+  }
+  
+  .poet-name {
+    font-size: 2.4rem;
+  }
+  
+  .poet-description {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .image-container {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .poet-name {
+    font-size: 2rem;
+  }
+  
+  .welcome-text {
+    font-size: 1.1rem;
+  }
+  
+  .poet-description {
+    font-size: 1rem;
+  }
+  
+  .poetry-button {
+    padding: 12px 28px;
+    font-size: 1.05rem;
+  }
+  
+  .poem-card {
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .home-page {
+    padding-top: calc(var(--header-height) + 20px);
+  }
+  
+  .poet-name {
+    font-size: 1.8rem;
+  }
+  
+  .welcome-text {
+    font-size: 1rem;
+  }
+  
+  .image-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .poem-card {
+    padding: 1.5rem;
+  }
+  
+  .poet-description {
+    margin-bottom: 1.5rem;
+  }
+  
+  .featured-title {
+    font-size: 1.3rem;
+  }
+  
+  .poem-line {
+    font-size: 1rem;
+  }
+}

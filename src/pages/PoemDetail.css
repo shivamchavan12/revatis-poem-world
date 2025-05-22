@@ -1,0 +1,326 @@
+/* PoemDetail.css */
+
+/* Main container - ensuring content doesn't hide under header */
+.poem-page-container {
+  padding-top: 80px; /* Adjust based on your header height */
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Container with dynamic background */
+.poem-container {
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 80px); /* Subtract header height */
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a gentle gradient overlay for better text readability */
+.poem-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,240,250,0.7));
+  z-index: 1;
+}
+
+/* Floating decorative elements */
+.floating-element {
+  position: absolute;
+  z-index: 2;
+  animation: float 12s infinite ease-in-out;
+  opacity: 0.6;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  pointer-events: none;
+}
+
+.element-1 {
+  top: 15%;
+  left: 10%;
+  font-size: 3.5rem;
+  color: #ff85a2;
+  animation-delay: 0s;
+}
+
+.element-2 {
+  top: 25%;
+  right: 15%;
+  font-size: 3rem;
+  color: #7dabff;
+  animation-delay: 2s;
+}
+
+.element-3 {
+  bottom: 20%;
+  left: 15%;
+  font-size: 3.2rem;
+  color: #a5d6a7;
+  animation-delay: 1s;
+}
+
+.element-4 {
+  bottom: 15%;
+  right: 12%;
+  font-size: 3.8rem;
+  color: #ffcc80;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(3deg); }
+  66% { transform: translateY(15px) rotate(-3deg); }
+}
+
+/* Enhanced card styling with better aesthetics */
+.poem-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.1),
+    0 0 0 1px rgba(255,255,255,0.9),
+    0 0 0 4px rgba(255,200,220,0.3);
+  animation: cardAppear 0.8s ease-out;
+}
+
+@keyframes cardAppear {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  60% { transform: translateY(-10px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Improved title styling with decorative elements */
+.poem-title1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+  font-family: 'Georgia', serif;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.poem-title1::before,
+.poem-title1::after {
+  content: "✦";
+  font-size: 1.2rem;
+  position: relative;
+  color: #d48fb6;
+  top: -0.5rem;
+  padding: 0 1rem;
+}
+
+/* Improved divider with gradient */
+.poem-divider {
+  height: 3px;
+  background: linear-gradient(to right, transparent, #e1b0df, #b0c4e1, #e1b0df, transparent);
+  margin: 1rem auto 1.5rem;
+  width: 60%;
+  border-radius: 3px;
+}
+
+/* Enhanced author display */
+.poem-author {
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 1.5rem;
+  background: #f9f0f5;
+  border-radius: 30px;
+}
+
+/* Poem description styling */
+.poem-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Enhanced poem content styling */
+.poem-content1 {
+  font-size: 1.25rem;
+  line-height: 2.1;
+  white-space: pre-line;
+  color: #333;
+  font-family: 'Georgia', serif;
+  padding: 1.5rem;
+  background: #fdfafc;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
+}
+
+/* Share section styling */
+.share-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.share-title {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.share-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.share-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.share-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+.share-icon.whatsapp {
+  color: #ffffff; /* WhatsApp green */
+  background-color: #25D366;
+  border-radius: 50%;
+}
+
+.twitter {
+  background-color: #1da1f2;
+}
+
+.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.pinterest {
+  background-color: #e60023;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.nav-button {
+  background-color: #6c5b7b;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(108, 91, 123, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #574366;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(108, 91, 123, 0.4);
+}
+
+/* Not found page styling */
+.poem-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  text-align: center;
+  padding: 2rem;
+}
+
+.poem-not-found h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #6c5b7b;
+}
+
+.poem-not-found p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  background-color: #6c5b7b;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: #574366;
+  transform: translateY(-3px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .poem-page-container {
+    padding-top: 60px; /* Smaller header padding on mobile */
+  }
+  
+  .poem-container {
+    padding: 1.5rem;
+    min-height: calc(100vh - 60px);
+  }
+  
+  .poem-card {
+    padding: 2rem;
+  }
+  
+  .poem-title1 {
+    font-size: 2rem;
+  }
+  
+  .poem-content1 {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding: 1rem;
+  }
+  
+  .floating-element {
+    font-size: 2rem;
+  }
+}
