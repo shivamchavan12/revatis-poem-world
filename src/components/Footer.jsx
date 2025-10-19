@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 import "./Footer.css";
 
 function Footer() {
@@ -8,7 +8,8 @@ function Footer() {
   const socialLinks = [
     { icon: <FaGithub />, url: "https://github.com/shivamchavan12", label: "GitHub" },
     { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/shivam-chavan-07940728b/", label: "LinkedIn" },
-    { icon: <FaTwitter />, url: "https://twitter.com/", label: "Twitter" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/kalakavyakunj?igsh=MWdsMnc3OTRpM253Yw==", label: "Instagram" },
+    { icon: <FaYoutube />, url: "https://youtube.com/@gaurichavan1457?si=uwzo-g3-1iC6YENX", label: "YouTube" },
     { icon: <FaEnvelope />, url: "mailto:shivamchavan0512@gmail.com", label: "Email" }
   ];
   

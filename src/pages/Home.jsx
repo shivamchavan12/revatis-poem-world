@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import poetryImage from "../assets/images/bhakti.jpg";
@@ -55,7 +56,22 @@ function Home() {
             </Link>
           </div>
         </section>
-
+        {/* Social Media Section */}
+        <section className="social-media-section" ref={(el) => (animatedElements.current[5] = el)}>
+          <div className="social-media-card">
+            <h2 className="social-media-title">रेवतीच्या कविता ऐकण्यासाठी आणि तिच्याशी कनेक्टेड राहण्यासाठी, इंस्टाग्राम आणि यूट्यूबवर फॉलो करा.</h2>
+            <div className="social-media-links">
+              <a href="https://www.instagram.com/kalakavyakunj?igsh=MWdsMnc3OTRpM253Yw==" target="_blank" rel="noopener noreferrer" className="social-media-link">
+                <FaInstagram />
+                <span>Instagram</span>
+              </a>
+              <a href="https://youtube.com/@gaurichavan1457?si=uwzo-g3-1iC6YENX" target="_blank" rel="noopener noreferrer" className="social-media-link">
+                <FaYoutube />
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+        </section>
         {/* Featured Poem Section */}
         <section className="featured-poem" ref={(el) => (animatedElements.current[4] = el)}>
           <div className="poem-card">
@@ -69,6 +85,7 @@ function Home() {
             <Link to="/poems" className="read-more">अधिक वाचा →</Link>
           </div>
         </section>
+
       </main>
     </div>
   );

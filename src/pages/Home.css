@@ -318,6 +318,54 @@
   width: 100%;
 }
 
+/* Social Media Section */
+.social-media-section {
+  margin: 3rem auto 5rem;
+  max-width: 800px;
+  opacity: 0;
+}
+
+.social-media-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.social-media-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.social-media-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.social-media-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  color: var(--background);
+  background-color: var(--primary-color);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-media-link:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
+}
+
 /* Animation classes */
 .fade-in-up {
   animation: fadeInUp 0.8s forwards;
