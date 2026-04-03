@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 
+const poeticQuotes = [
+  "Words that inspire",
+  "Verses of emotion",
+  "Rhythms of the soul",
+  "Poetic journey"
+];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const [animatedText, setAnimatedText] = useState("");
-  const poeticQuotes = [
-    "Words that inspire",
-    "Verses of emotion",
-    "Rhythms of the soul",
-    "Poetic journey"
-  ];
 
   // Handle scroll effect
   useEffect(() => {
@@ -35,7 +36,7 @@ const Header = () => {
     animateText();
     const timer = setInterval(animateText, 4000);
     return () => clearInterval(timer);
-  }, [poeticQuotes]);
+  }, []);
 
   // Close menu on navigation
   useEffect(() => {

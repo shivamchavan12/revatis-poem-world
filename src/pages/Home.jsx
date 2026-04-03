@@ -2,17 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaInstagram, FaYoutube, FaArrowRight, FaBookOpen, FaFeatherAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import poetryImage from "../assets/images/bhakti.jpg";
-import { default as poems } from "../poemsData";
 import "./Home.css";
 
 function Home() {
   const heroRef = useRef(null);
   const revealRefs = useRef([]);
   const [heroVisible, setHeroVisible] = useState(false);
-
-  // Get 3 featured poems (or first 3 if none marked featured)
-  const featuredPoems = poems.filter((p) => p.featured).slice(0, 3);
-
 
   useEffect(() => {
     // Hero entrance
