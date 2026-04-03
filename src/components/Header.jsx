@@ -35,7 +35,7 @@ const Header = () => {
     animateText();
     const timer = setInterval(animateText, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [poeticQuotes]);
 
   // Close menu on navigation
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Search, Heart, Share, ChevronRight, Tag } from "lucide-react";
+import { BookOpen, Search, ChevronRight, Tag } from "lucide-react";
 import "./Poems.css";
 import '@fontsource/modak'; // Defaults to weight 400
 import '@fontsource/tiro-devanagari-marathi';

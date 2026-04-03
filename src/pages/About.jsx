@@ -72,7 +72,7 @@ const galleryPhotos = [
   },
   {
     id: 7,
-    src: newsLetter6Image,
+    src: newsLetter7Image,
     alt: "Media Coverage",
     caption: "",
     span: "wide"

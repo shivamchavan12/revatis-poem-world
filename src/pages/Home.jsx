@@ -12,10 +12,7 @@ function Home() {
 
   // Get 3 featured poems (or first 3 if none marked featured)
   const featuredPoems = poems.filter((p) => p.featured).slice(0, 3);
-  const displayPoems = featuredPoems.length >= 3 ? featuredPoems : poems.slice(0, 3);
 
-  // Pick a random poem for the highlight section
-  const highlightPoem = poems.find((p) => p.id === "guru") || poems[0];
 
   useEffect(() => {
     // Hero entrance

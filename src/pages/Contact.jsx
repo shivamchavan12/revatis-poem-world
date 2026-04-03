@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import "./Contact.css";
-import Footer from "../components/Footer";
 import { MapPin, Mail, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
