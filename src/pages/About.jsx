@@ -23,6 +23,9 @@ import newsLetter9Image from "../assets/images/newsLetter9Image.jpeg";
 import newsLetter10Image from "../assets/images/newsLetter10Image.jpeg";
 import newsLetter11Image from "../assets/images/newsLetter11Image.jpeg";
 import newsLetter12Image from "../assets/images/newsLetter12Image.jpeg";
+import laxmanGaikwadImage from "../assets/images/laxmanGaikwadImage.jpeg";
+import thanedarImage from "../assets/images/thanedarImage.jpeg";
+import namdevKoliImage from "../assets/images/namdevKoliImage.jpeg";
 
 /* ── Photo Gallery Data – add more photos here easily ──────── */
 const galleryPhotos = [
@@ -271,7 +274,46 @@ const About = () => {
                   </p>
                 </div>
               </div>
-
+              <div className="award-item">
+                <div className="award-image-container">
+                  <img src={laxmanGaikwadImage} alt="With Laxman Gaikwad" className="award-image" />
+                </div>
+                <div className="award-details">
+                  <h3>साहित्यिक लक्ष्मणजी गायकवाड सर यांच्यासोबत</h3>
+                  <p>
+                    “उचल्या” कादंबरीचे लेखक मा. श्री लक्ष्मणजी गायकवाड सर यांची भेट घेण्याचा
+                    आणि त्यांच्यासोबत साहित्यसंवाद साधण्याचा अविस्मरणीय योग आला.
+                    हा माझ्यासाठी अत्यंत प्रेरणादायी अनुभव होता.
+                  </p>
+                </div>
+              </div>
+              <div className="award-item">
+                <div className="award-image-container">
+                  <img src={thanedarImage} alt="With Srinivas Thanedar Sir" className="award-image" />
+                </div>
+                <div className="award-details">
+                  <h3>श्री. श्रीनिवास ठाणेदार सर यांच्यासोबत</h3>
+                  <p>
+                    U.S. येथील पहिले मराठी खासदार व प्रसिद्ध साहित्यिक
+                    श्री. श्रीनिवास ठाणेदार सर यांची भेट घेण्याचा योग आला.
+                    त्यांच्याशी साहित्य, शिक्षण आणि प्रेरणादायी प्रवासाबद्दल संवाद साधण्याची
+                    संधी मिळाली. हा माझ्यासाठी अत्यंत प्रेरणादायी क्षण होता.
+                  </p>
+                </div>
+              </div>
+              <div className="award-item">
+                <div className="award-image-container">
+                  <img src={namdevKoliImage} alt="With Namdev Koli" className="award-image" />
+                </div>
+                <div className="award-details">
+                  <h3>कवी नामदेवजी कोळी सर यांच्यासोबत</h3>
+                  <p>
+                    प्रसिद्ध कवी श्री. नामदेवजी कोळी सर यांची भेट घेण्याची संधी मिळाली.
+                    त्यांच्याशी साहित्य, कविता आणि लेखन प्रवासाबद्दल संवाद साधण्याचा
+                    हा माझ्यासाठी प्रेरणादायी अनुभव होता.
+                  </p>
+                </div>
+              </div>
               <div className="award-item">
                 <div className="award-image-container">
                   <img src={award3Image} alt="SHARDA'S STAR AWARD" className="award-image" />
