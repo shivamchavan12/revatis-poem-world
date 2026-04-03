@@ -99,7 +99,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["आई", "आठवणी"],
 //   featured: false,
- 
+
 // },
 // { 
 //   id: "ayushyache_aabhar",
@@ -110,7 +110,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["आभार", "आयुष्य", "आध्यात्म"],
 //   featured: false,
- 
+
 // },
 // { 
 //   id: "ayushyach",
@@ -121,7 +121,7 @@ const poemCollection = poems;
 //   year: "2022",
 //   tags: ["जीवन", "आयुष्य"],
 //   featured: false,  
- 
+
 // },
 // { 
 //   id: "mukunda",
@@ -132,7 +132,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["कृष्ण", "भक्ती", "प्रेम"],
 //   featured: false,  
- 
+
 // },
 // { 
 //   id: "prasang",
@@ -143,7 +143,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["प्रसंग", "जीवन", "अनुभव"],
 //   featured: false,
- 
+
 // },
 // { 
 //   id: "shoorveer",
@@ -154,7 +154,7 @@ const poemCollection = poems;
 //   year: "2022",
 //   tags: ["शौर्य", "त्याग", "देशभक्ती"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "ase_kase",
@@ -165,7 +165,7 @@ const poemCollection = poems;
 //   year: "2024",
 //   tags: ["जीवन", "प्रश्न", "गूढता"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "bap_mhanje_kay",
@@ -176,7 +176,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["बाप", "कुटुंब", "प्रेम"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "man",
@@ -187,7 +187,7 @@ const poemCollection = poems;
 //   year: "2022",
 //   tags: ["मन", "विचार", "अंतर्मन"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "jeevanat_hasun_bagh",
@@ -198,7 +198,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["आनंद", "जीवन", "हसणे"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "bhaji_ghya_bhaji",
@@ -209,7 +209,7 @@ const poemCollection = poems;
 //   year: "2024",
 //   tags: ["भाजी", "मंडी", "शेती"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "nawhati_jehva_mala_ek_chotishi_bahini",
@@ -220,7 +220,7 @@ const poemCollection = poems;
 //   year: "2023",
 //   tags: ["भावंड", "बहीण", "कुटुंब"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "aai",
@@ -231,7 +231,7 @@ const poemCollection = poems;
 //   year: "2022",
 //   tags: ["आई", "प्रेम", "कुटुंब"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "maa_marathi",
@@ -242,7 +242,7 @@ const poemCollection = poems;
 //   year: "2024",
 //   tags: ["मराठी", "भाषा", "अभिमान"],
 //   featured: false,
- 
+
 // },
 // {
 //   id: "pakshi",
@@ -536,7 +536,7 @@ const PoemCollection = () => {
   const [sortBy, setSortBy] = useState("newest");
   const [selectedPoem, setSelectedPoem] = useState(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  
+
   const searchInputRef = useRef(null);
   const previewRef = useRef(null);
 
@@ -567,7 +567,7 @@ const PoemCollection = () => {
   // Filter and sort poems
   useEffect(() => {
     let filtered = [...poemCollection];
-    
+
     // Search filter
     if (searchQuery) {
       filtered = filtered.filter(poem =>
@@ -578,26 +578,26 @@ const PoemCollection = () => {
         poem.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     }
-    
+
     // Tag filter
     if (selectedTag) {
       filtered = filtered.filter(poem =>
         poem.tags.includes(selectedTag)
       );
     }
-    
+
     // Year filter
     if (filterYear) {
       filtered = filtered.filter(poem => poem.year === filterYear);
     }
-    
+
     // Translation filter
     if (filterTranslation) {
-      filtered = filtered.filter(poem => 
+      filtered = filtered.filter(poem =>
         poem.translations.includes(filterTranslation)
       );
     }
-    
+
     // Sorting
     if (sortBy === "newest") {
       filtered.sort((a, b) => b.year.localeCompare(a.year));
@@ -610,7 +610,7 @@ const PoemCollection = () => {
     } else if (sortBy === "featured") {
       filtered.sort((a, b) => b.featured - a.featured);
     }
-    
+
     setFilteredPoems(filtered);
   }, [searchQuery, selectedTag, filterYear, filterTranslation, sortBy]);
 
@@ -663,7 +663,7 @@ const PoemCollection = () => {
   return (
     <div className="poem-page">
       <div className="poem-header">
-        <motion.h1 
+        <motion.h1
           className="poem-collection-title"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -675,8 +675,8 @@ const PoemCollection = () => {
           </div>
 
         </motion.h1>
-        
-        <motion.div 
+
+        <motion.div
           className="poem-collection-subtitle"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -687,7 +687,7 @@ const PoemCollection = () => {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="search-and-filter-container"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -704,8 +704,8 @@ const PoemCollection = () => {
             className="search-input"
           />
           {searchQuery && (
-            <button 
-              className="clear-search" 
+            <button
+              className="clear-search"
               onClick={() => setSearchQuery("")}
             >
               ✕
@@ -714,23 +714,23 @@ const PoemCollection = () => {
         </div>
 
         <div className="controls-wrapper">
-          <button 
+          <button
             className="filter-toggle"
             onClick={() => setShowFilters(!showFilters)}
           >
             <span>फिल्टर</span>
             <span className={`filter-arrow ${showFilters ? 'open' : ''}`}>▼</span>
           </button>
-          
+
           <div className="view-toggles">
-            <button 
+            <button
               className={`view-toggle ${viewMode === 'grid' ? 'active' : ''}`}
               onClick={() => setViewMode('grid')}
               aria-label="Grid view"
             >
               <span className="grid-icon"></span>
             </button>
-            <button 
+            <button
               className={`view-toggle ${viewMode === 'list' ? 'active' : ''}`}
               onClick={() => setViewMode('list')}
               aria-label="List view"
@@ -743,7 +743,7 @@ const PoemCollection = () => {
 
       <AnimatePresence>
         {showFilters && (
-          <motion.div 
+          <motion.div
             className="filters-panel"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -767,7 +767,7 @@ const PoemCollection = () => {
 
             <div className="filter-section">
               <h3>वर्ष</h3>
-              <select 
+              <select
                 value={filterYear || ''}
                 onChange={(e) => setFilterYear(e.target.value || null)}
               >
@@ -780,7 +780,7 @@ const PoemCollection = () => {
 
             <div className="filter-section">
               <h3>अनुवाद</h3>
-              <select 
+              <select
                 value={filterTranslation || ''}
                 onChange={(e) => setFilterTranslation(e.target.value || null)}
               >
@@ -793,7 +793,7 @@ const PoemCollection = () => {
 
             <div className="filter-section">
               <h3>क्रमवारी</h3>
-              <select 
+              <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
@@ -842,15 +842,15 @@ const PoemCollection = () => {
             )}
           </div>
         )}
-        
+
         <div className="results-count">
-          {filteredPoems.length} 
+          {filteredPoems.length}
           {filteredPoems.length === 1 ? ' कविता' : ' कविता'}
         </div>
       </div>
 
       {filteredPoems.length === 0 ? (
-        <motion.div 
+        <motion.div
           className="no-results"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -864,7 +864,7 @@ const PoemCollection = () => {
           </button>
         </motion.div>
       ) : (
-        <motion.div 
+        <motion.div
           className={`poems-collection ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}
           initial="hidden"
           animate="visible"
@@ -885,16 +885,16 @@ const PoemCollection = () => {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
               }}
-              whileHover={{ 
-                y: -5, 
-                boxShadow: "0 10px 20px rgba(0,0,0,0.1)" 
+              whileHover={{
+                y: -5,
+                boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
               }}
               onClick={() => handlePoemClick(poem)}
             >
               {poem.featured && viewMode === 'grid' && (
                 <div className="featured-badge">विशेष</div>
               )}
-              
+
               <div className="poem-content">
                 <h3 className="poem-title">{poem.title}</h3>
                 {viewMode === 'grid' && (
@@ -909,7 +909,7 @@ const PoemCollection = () => {
                     </div>
                   </div>
                 )}
-                
+
                 {viewMode === 'grid' && (
                   <div className="poem-footer">
                     <div className="poem-tags">
@@ -922,7 +922,7 @@ const PoemCollection = () => {
                   </div>
                 )}
               </div>
-              
+
               <div className="read-button">
                 <BookOpen size={16} />
                 <span>वाचा</span>
@@ -935,13 +935,13 @@ const PoemCollection = () => {
 
       <AnimatePresence>
         {isPreviewOpen && selectedPoem && (
-          <motion.div 
+          <motion.div
             className="poem-preview-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <motion.div 
+            <motion.div
               className="poem-preview-container"
               ref={previewRef}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -949,42 +949,42 @@ const PoemCollection = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ type: "spring", damping: 20 }}
             >
-              <button 
+              <button
                 className="close-preview"
                 onClick={() => setIsPreviewOpen(false)}
               >
                 ✕
               </button>
-              
+
               <div className="preview-header">
                 <h2 className="preview-title">{selectedPoem.title}</h2>
                 <div className="preview-meta">
                   <span className="preview-year">{selectedPoem.year}</span>
                   {selectedPoem.featured && <span className="preview-featured">विशेष दाखल</span>}
-                  
+
                   <div className="preview-actions">
                   </div>
                 </div>
               </div>
-              
+
               <div className="preview-content">
                 <p className="preview-excerpt">
                   {selectedPoem.excerpt}
                   <span className="preview-ellipsis">...</span>
                 </p>
-                
+
                 <div className="preview-continue">
                   <a href={`/poems/${selectedPoem.id}`} className="preview-read-full">
                     संपूर्ण कविता वाचा
                   </a>
                 </div>
-                
+
                 <div className="preview-tags-section">
                   <h4><Tag size={16} /> टॅग:</h4>
                   <div className="preview-tags">
                     {selectedPoem.tags.map((tag, i) => (
-                      <span 
-                        key={i} 
+                      <span
+                        key={i}
                         className="preview-tag"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -1003,7 +1003,7 @@ const PoemCollection = () => {
         )}
       </AnimatePresence>
     </div>
- 
+
   );
 };
 

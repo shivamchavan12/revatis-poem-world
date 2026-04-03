@@ -4,7 +4,7 @@ import "./Footer.css";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   const socialLinks = [
     { icon: <FaGithub />, url: "https://github.com/shivamchavan12", label: "GitHub" },
     { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/shivam-chavan-07940728b/", label: "LinkedIn" },
@@ -12,7 +12,7 @@ function Footer() {
     { icon: <FaYoutube />, url: "https://youtube.com/@gaurichavan1457?si=uwzo-g3-1iC6YENX", label: "YouTube" },
     { icon: <FaEnvelope />, url: "mailto:shivamchavan0512@gmail.com", label: "Email" }
   ];
-  
+
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -51,8 +51,8 @@ function Footer() {
           <div className="footer-contact">
             <h4 className="footer-heading">Get In Touch</h4>
             <p className="contact-text">Feel free to reach out for collaborations or inquiries</p>
-            <a 
-              href="mailto:shivamchavan0512@gmail.com" 
+            <a
+              href="mailto:shivamchavan0512@gmail.com"
               className="contact-email"
             >
               shivamchavan0512@gmail.com
@@ -74,11 +74,11 @@ function Footer() {
           {/* Social Media Links */}
           <div className="social-icons">
             {socialLinks.map((social, index) => (
-              <a 
+              <a
                 key={index}
-                href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 className="social-icon-link"
               >
@@ -88,7 +88,7 @@ function Footer() {
           </div>
 
           <p className="attribution">
-            Designed by <a href="#" className="footer-link">Shivam Sandip Chavan</a>
+            Designed by <a href="https://www.linkedin.com/in/shivam-chavan-07940728b/" className="footer-link">Shivam Sandip Chavan</a>
           </p>
         </div>
       </div>

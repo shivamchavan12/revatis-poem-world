@@ -1,92 +1,170 @@
-import React, { useEffect, useRef } from "react";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { FaInstagram, FaYoutube, FaArrowRight, FaBookOpen, FaFeatherAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
 import poetryImage from "../assets/images/bhakti.jpg";
+import { default as poems } from "../poemsData";
 import "./Home.css";
 
 function Home() {
-  const animatedElements = useRef([]);
+  const heroRef = useRef(null);
+  const revealRefs = useRef([]);
+  const [heroVisible, setHeroVisible] = useState(false);
+
+  // Get 3 featured poems (or first 3 if none marked featured)
+  const featuredPoems = poems.filter((p) => p.featured).slice(0, 3);
+  const displayPoems = featuredPoems.length >= 3 ? featuredPoems : poems.slice(0, 3);
+
+  // Pick a random poem for the highlight section
+  const highlightPoem = poems.find((p) => p.id === "guru") || poems[0];
 
   useEffect(() => {
-    animatedElements.current.forEach((el, index) => {
-      if (el) {
-        el.classList.add("fade-in-up", `delay-${index}`);
-      }
+    // Hero entrance
+    const heroTimer = setTimeout(() => setHeroVisible(true), 100);
+
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal--visible");
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    revealRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => {
-      animatedElements.current.forEach((el, index) => {
-        if (el) {
-          el.classList.remove("fade-in-up", `delay-${index}`);
-        }
-      });
+      clearTimeout(heroTimer);
+      observer.disconnect();
     };
   }, []);
 
+  const addRevealRef = (el) => {
+    if (el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el);
+    }
+  };
+
   return (
     <div className="home-page">
-      {/* Decorative Elements */}
-      <div className="decorative-element left"></div>
-      <div className="decorative-element right"></div>
+      {/* Floating decorative orbs */}
+      <div className="deco-orb deco-orb--gold" aria-hidden="true"></div>
+      <div className="deco-orb deco-orb--coral" aria-hidden="true"></div>
+      <div className="deco-orb deco-orb--wine" aria-hidden="true"></div>
 
-      <main className="poetry-container">
-        {/* Hero Section */}
-        <section className="hero-section">
-          <div className="image-frame" ref={(el) => (animatedElements.current[0] = el)}>
-            <div className="image-container">
-              <img src={poetryImage} alt="Revati Sandip Chavan" className="poet-image" />
-              <div className="image-overlay"></div>
+      <div className="home-content">
+        {/* ═══════════════ HERO ═══════════════ */}
+        <section className={`hero ${heroVisible ? "hero--visible" : ""}`} ref={heroRef}>
+          <div className="hero__visual">
+            <div className="hero__image-ring">
+              <div className="hero__image-inner">
+                <img src={poetryImage} alt="Revati Sandip Chavan – कवयित्री" className="hero__photo" />
+              </div>
+              <span className="hero__sparkle" aria-hidden="true">✦</span>
+              <span className="hero__sparkle" aria-hidden="true">✧</span>
+              <span className="hero__sparkle" aria-hidden="true">✦</span>
+              <span className="hero__sparkle" aria-hidden="true">✧</span>
             </div>
           </div>
 
-          <h1 className="poet-title" ref={(el) => (animatedElements.current[1] = el)}>
-            <span className="welcome-text">Welcome to</span>
-            <span className="poet-name">Revati's Poetry World</span>
-          </h1>
+          <div className="hero__text">
+            <span className="hero__greeting">✨ Welcome to the Poetry World</span>
+            <h1 className="hero__title">
+              Revati's
+              <span className="hero__title-accent">Poem World</span>
+            </h1>
+            <p className="hero__subtitle">
+              शब्दांच्या सुंदर विश्वात आपले स्वागत, जिथे भावना कवितेतून बोलतात,
+              आणि प्रत्येक ओळ हृदयाला स्पर्श करते.
+            </p>
 
-          <p className="poet-description" ref={(el) => (animatedElements.current[2] = el)}>
-            Immerse yourself in the beauty of words and emotions.  
-            Let poetry be your guide through life's journey.
-          </p>
+            <div className="hero__actions">
+              <Link to="/poems" className="btn-primary" id="hero-cta-poems">
+                <FaBookOpen className="btn-icon" />
+                <span>माझ्या कविता वाचा</span>
+                <FaArrowRight className="btn-icon" />
+              </Link>
+              <Link to="/about" className="btn-outline" id="hero-cta-about">
+                <FaFeatherAlt />
+                <span>माझ्याबद्दल</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+        {/* ═══════════════ SOCIAL CONNECT ═══════════════ */}
+        <section className="social-section">
+          <div className="section-header reveal" ref={addRevealRef}>
+            <span className="section-label">✦ Connect ✦</span>
+            <h2 className="section-title">Stay Connected</h2>
+            <p className="section-desc">
+              रेवतीच्या कविता ऐकण्यासाठी आणि तिच्याशी कनेक्टेड राहण्यासाठी,
+              इंस्टाग्राम आणि यूट्यूबवर फॉलो करा.
+            </p>
+          </div>
 
-          <div className="action-container" ref={(el) => (animatedElements.current[3] = el)}>
-            <Link to="/poems" className="poetry-button">
-              <span className="button-text">माझ्या कविता वाचण्यासाठी क्लिक करा</span>
+          <div className="social-grid">
+            <a
+              href="https://www.instagram.com/kalakavyakunj?igsh=MWdsMnc3OTRpM253Yw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-card social-card--instagram reveal reveal-delay-1"
+              ref={addRevealRef}
+              id="social-instagram"
+            >
+              <div className="social-card__icon-wrap">
+                <FaInstagram />
+              </div>
+              <div className="social-card__info">
+                <p className="social-card__platform">Instagram</p>
+                <p className="social-card__handle">@kalakavyakunj</p>
+              </div>
+              <span className="social-card__arrow">→</span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/@revatichavan786"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-card social-card--youtube reveal reveal-delay-2"
+              ref={addRevealRef}
+              id="social-youtube"
+            >
+              <div className="social-card__icon-wrap">
+                <FaYoutube />
+              </div>
+              <div className="social-card__info">
+                <p className="social-card__platform">YouTube</p>
+                <p className="social-card__handle">@gaurichavan1457</p>
+              </div>
+              <span className="social-card__arrow">→</span>
+            </a>
+          </div>
+        </section>
+        {/* Divider */}
+        <div className="section-divider" aria-hidden="true">❖ ❖ ❖</div>
+
+
+        {/* ═══════════════ MARATHI CTA BANNER ═══════════════ */}
+        <section className="marathi-cta">
+          <div className="marathi-cta__banner reveal" ref={addRevealRef}>
+            <h2 className="marathi-cta__title">
+              माझ्या कविता वाचण्यासाठी<br />क्लिक करा
+            </h2>
+            <p className="marathi-cta__desc">
+              प्रत्येक कविता हृदयाच्या भाषेत लिहिलेली — आनंद, दुःख, भक्ती आणि प्रेम यांचे सुंदर मिश्रण.
+            </p>
+            <Link to="/poems" className="btn-gold" id="marathi-cta-poems">
+              <FaBookOpen />
+              <span>कविता संग्रह</span>
+              <FaArrowRight />
             </Link>
           </div>
         </section>
-        {/* Social Media Section */}
-        <section className="social-media-section" ref={(el) => (animatedElements.current[5] = el)}>
-          <div className="social-media-card">
-            <h2 className="social-media-title">रेवतीच्या कविता ऐकण्यासाठी आणि तिच्याशी कनेक्टेड राहण्यासाठी, इंस्टाग्राम आणि यूट्यूबवर फॉलो करा.</h2>
-            <div className="social-media-links">
-              <a href="https://www.instagram.com/kalakavyakunj?igsh=MWdsMnc3OTRpM253Yw==" target="_blank" rel="noopener noreferrer" className="social-media-link">
-                <FaInstagram />
-                <span>Instagram</span>
-              </a>
-              <a href="https://youtube.com/@gaurichavan1457?si=uwzo-g3-1iC6YENX" target="_blank" rel="noopener noreferrer" className="social-media-link">
-                <FaYoutube />
-                <span>YouTube</span>
-              </a>
-            </div>
-          </div>
-        </section>
-        {/* Featured Poem Section */}
-        <section className="featured-poem" ref={(el) => (animatedElements.current[4] = el)}>
-          <div className="poem-card">
-            <h2 className="featured-title">✨ Featured Poem ✨</h2>
-            <div className="poem-content">
-              <p className="poem-line">जीवनाच्या वाटेवर चालताना,</p>
-              <p className="poem-line">शब्दांचे साथी मिळाले मला...</p>
-              <p className="poem-line">कधी आनंदात, कधी वेदनेत,</p>
-              <p className="poem-line">कवितेने दिलासा दिला मला.</p>
-            </div>
-            <Link to="/poems" className="read-more">अधिक वाचा →</Link>
-          </div>
-        </section>
-
-      </main>
+      </div>
     </div>
   );
 }

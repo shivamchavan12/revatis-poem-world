@@ -28,13 +28,27 @@
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 :root {
@@ -77,9 +91,11 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -207,7 +223,7 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  color:transparent;
+  color: transparent;
 }
 
 .clear-search:hover {
@@ -273,14 +289,16 @@ body {
   color: var(--primary-dark);
 }
 
-.grid-icon, .list-icon {
+.grid-icon,
+.list-icon {
   display: inline-block;
   width: 18px;
   height: 18px;
   position: relative;
 }
 
-.grid-icon::before, .grid-icon::after {
+.grid-icon::before,
+.grid-icon::after {
   content: '';
   position: absolute;
   background-color: currentColor;
@@ -406,7 +424,7 @@ body {
   align-items: center;
 }
 
-.active-filters > span:first-child {
+.active-filters>span:first-child {
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
@@ -470,8 +488,15 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .no-results h3 {
@@ -930,23 +955,47 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 /* Add some playful hover effects */
@@ -962,14 +1011,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 25%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0.1) 75%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 25%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 75%,
+      rgba(255, 255, 255, 0) 100%);
   background-size: 200% 200%;
   animation: shimmer 3s linear infinite;
   transform: translateX(-100%);
@@ -981,37 +1028,37 @@ body {
   .poem-page {
     padding: 1rem;
   }
-  
+
   .poem-collection-title {
     font-size: 2.5rem;
   }
-  
+
   .filters-panel {
     grid-template-columns: 1fr;
   }
-  
+
   .poems-collection.grid-view {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
-  
+
   .poem-preview-overlay {
     padding: 1rem;
   }
-  
+
   .preview-actions {
     margin-top: 1rem;
     margin-left: 0;
   }
-  
+
   .poems-collection.list-view .poem-content {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .poems-collection.list-view .poem-item {
     flex-direction: column;
   }
-  
+
   .poems-collection.list-view .read-button {
     width: 100%;
     justify-content: center;
@@ -1023,17 +1070,17 @@ body {
   .search-and-filter-container {
     flex-direction: column;
   }
-  
+
   .controls-wrapper {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .preview-meta {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .preview-actions {
     width: 100%;
     justify-content: space-between;
@@ -1074,6 +1121,7 @@ body {
   0% {
     background-position: -200px 0;
   }
+
   100% {
     background-position: calc(200px + 100%) 0;
   }
