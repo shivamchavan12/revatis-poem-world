@@ -1,34 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <!-- Social Media Preview Image -->
-  <meta property="og:image" content="https://revatis-poem-world.vercel.app/android-chrome-512x512.png" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
-  <meta property="og:image" content="https://revatis-poem-world.vercel.app/social-banner.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <!-- Twitter/X card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="https://revatis-poem-world.vercel.app/android-chrome-512x512.png" />
-  <meta name="twitter:title" content="Revati's Poem World" />
-  <meta name="twitter:description"
-    content="Welcome to Revati's Poetry World. Immerse yourself in the beauty of words and emotions." />
-  <!-- ✅ Fix description -->
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+
+  <!-- Manifest -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest" />
+
+  <!-- Primary Meta Tags -->
+  <title>Revati's Poem World</title>
   <meta name="description"
     content="Welcome to Revati's Poetry World. Immerse yourself in the beauty of words and emotions." />
 
-  <!-- ✅ Add Open Graph tags so Google shows correct info -->
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://revatis-poem-world.vercel.app" />
   <meta property="og:title" content="Revati's Poem World" />
   <meta property="og:description"
     content="Welcome to Revati's Poetry World. Immerse yourself in the beauty of words and emotions." />
-  <meta property="og:url" content="https://revatis-poem-world.vercel.app" />
-  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://revatis-poem-world.vercel.app/social-banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest" />
-  <title>Revati's Poem World</title>
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Revati's Poem World" />
+  <meta name="twitter:description"
+    content="Welcome to Revati's Poetry World. Immerse yourself in the beauty of words and emotions." />
+  <meta name="twitter:image" content="https://revatis-poem-world.vercel.app/social-banner.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QZLXHLR23"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-9QZLXHLR23');
+  </script>
 </head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+
+</html>
