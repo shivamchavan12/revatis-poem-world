@@ -1,14 +1,14 @@
 {
-  "name": "Image to Favicon From Poper",
-  "short_name": "Image to Favicon From Poper",
-  "description": null,
+  "name": "Revati's Poem World",
+  "short_name": "Revati's Poems",
+  "description": "Welcome to Revati's Poetry World. Immerse yourself in the beauty of words and emotions.",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
   "orientation": "any",
   "start_url": "/?homescreen=1",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
